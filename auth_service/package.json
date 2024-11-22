@@ -1,0 +1,21 @@
+{
+  "name": "auth_service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "auth_service": "file:",
+    "bcrypt": "^5.1.1",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.2",
+    "nodemon": "^3.1.7"
+  }
+}
