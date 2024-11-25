@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order-service
+        image: alchemycodes/order-service:1.0
+        ports:
+        - containerPort: 9090
+        resources:
+          requests:          # Minimum guaranteed resources
+            memory: "128Mi"  # 128 MiB of memory
+            cpu: "250m"      # 0.25 cores of CPU
+          limits:            # Maximum resources allowed
+            memory: "256Mi"  # 256 MiB of memory
+            cpu: "500m"      # 0.5 cores of CPU

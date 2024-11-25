@@ -13,6 +13,12 @@ var channel, connection;
 
 // Middleware
 app.use(express.json());
+
+// Root Route
+app.get("/", (req, res) => {
+    res.send("Welcome to the Product Service!");
+});
+
 // MongoDB Connection
 const connectDB = async () => {
     try {

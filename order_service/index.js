@@ -26,6 +26,11 @@ connectDB();
 
 app.use(express.json());
 
+// Root Route
+app.get("/", (req, res) => {
+    res.send("Welcome to the Order Service!");
+});
+
 function createOrder(products, userEmail) {
     let total = 0;
     for (let t = 0; t < products.length; ++t) {

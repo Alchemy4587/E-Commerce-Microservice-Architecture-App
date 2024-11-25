@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-service-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: auth-service
+  ports:
+  - protocol: TCP
+    port: 80       # Expose on port 80
+    targetPort: 7070 # Map to container port 7070

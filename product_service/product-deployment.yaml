@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+      - name: product-service
+        image: alchemycodes/product-service:1.0
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:          # Minimum guaranteed resources
+            memory: "256Mi"  # 256 MiB of memory
+            cpu: "500m"      # 0.5 cores of CPU
+          limits:            # Maximum resources allowed
+            memory: "512Mi"  # 512 MiB of memory
+            cpu: "1000m"     # 1 core of CPU

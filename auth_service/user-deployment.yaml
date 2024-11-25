@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: auth-service
+  template:
+    metadata:
+      labels:
+        app: auth-service
+    spec:
+      containers:
+      - name: auth-service
+        image: alchemycodes/auth_service:1.0
+        ports:
+        - containerPort: 7070
+        resources:
+          requests:          # Minimum guaranteed resources
+            memory: "128Mi"  # 128 MiB of memory
+            cpu: "250m"      # 0.25 cores of CPU
+          limits:            # Maximum resources allowed
+            memory: "256Mi"  # 256 MiB of memory
+            cpu: "500m"      # 0.5 cores of CPU

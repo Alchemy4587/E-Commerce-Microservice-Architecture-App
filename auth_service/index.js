@@ -26,6 +26,11 @@ connectDB(); // Call the async function to connect to MongoDB
 // Middleware
 app.use(express.json());
 
+// Root Route
+app.get("/", (req, res) => {
+    res.send("Welcome to the User Service!");
+});
+
 // Start the Server
 app.listen(PORT, () => {
     console.log(`Auth Service Running at ${PORT}`);
